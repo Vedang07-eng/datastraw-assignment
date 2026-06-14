@@ -1,0 +1,491 @@
+/* ============================================
+   Professional Customer Support System - CSS
+   Modern SaaS-Style Design
+   ============================================ */
+
+/* Color Variables - SaaS Professional Palette */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  --secondary: #64748b;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-dark: #94a3b8;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  
+  --accent: var(--primary);
+  --accent-bg: var(--bg-tertiary);
+  --accent-border: var(--primary-light);
+  --text-h: var(--text-primary);
+  --social-bg: var(--bg-secondary);
+}
+
+/* ============================================
+   Counter Component
+   ============================================ */
+.counter {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid var(--border-light);
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+  
+  &:hover {
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  
+  &.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary-dark);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden;
+  
+  /* Animated Background Particles */
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: floating 20s ease-in-out infinite;
+  }
+  
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+  
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .framework,
+  .vite {
+    position: absolute;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+  }
+  
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4);
+    animation: float 8s ease-in-out infinite reverse;
+  }
+  
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8);
+  }
+}
+
+/* ============================================
+   Center Section
+   ============================================ */
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+  
+  @media (max-width: 640px) {
+    padding: 24px 16px;
+    gap: 14px;
+  }
+}
+
+/* ============================================
+   Next Steps Section
+   ============================================ */
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border-light);
+  text-align: left;
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-md);
+  border-radius: 16px;
+  margin-top: 40px;
+  overflow: hidden;
+  
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    transition: background 0.3s ease;
+    
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+    
+    &:hover {
+      background: var(--bg-secondary);
+    }
+  }
+  
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+    color: var(--primary);
+  }
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  
+  p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ============================================
+   Docs Section
+   ============================================ */
+#docs {
+  border-right: 1px solid var(--border-light);
+  background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+  
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+  }
+}
+
+/* ============================================
+   Next Steps Links
+   ============================================ */
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+  flex-wrap: wrap;
+  
+  .logo {
+    height: 18px;
+    width: auto;
+  }
+  
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 10px 16px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    
+    &:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      background: var(--bg-primary);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+    
+    .button-icon {
+      height: 18px;
+      width: 18px;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover .button-icon {
+      transform: translateX(2px);
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+    
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    li {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+/* ============================================
+   Spacer
+   ============================================ */
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+  
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+/* ============================================
+   Ticks Component
+   ============================================ */
+.ticks {
+  position: relative;
+  width: 100%;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+  
+  &::before {
+    left: 0;
+    border-left-color: var(--border-medium);
+  }
+  
+  &::after {
+    right: 0;
+    border-right-color: var(--border-medium);
+  }
+}
+
+/* ============================================
+   Additional Professional Components
+   ============================================ */
+
+/* Buttons */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  &.primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow);
+    
+    &:hover {
+      background: var(--primary-dark);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    
+    &:hover {
+      background: var(--bg-tertiary);
+      border-color: var(--border-medium);
+    }
+  }
+}
+
+/* Cards */
+.card {
+  background: var(--bg-primary);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-primary);
+  font-size: 15px;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(30px, -30px);
+  }
+  66% {
+    transform: translate(-20px, 20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Utility Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out;
+}
+
+/* Text Styles */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-color: transparent;
+}
+
+/* Responsive Grid */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
