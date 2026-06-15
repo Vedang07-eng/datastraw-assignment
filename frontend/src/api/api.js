@@ -3,13 +3,14 @@ import axios from "axios";
 const api = axios.create({
   baseURL:
     import.meta.env.VITE_API_BASE_URL ||
-    "baseURL: "https://datastraw-assignment-1.onrender.com/api"",
+    "https://datastraw-assignment-1.onrender.com/api",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
   },
 });
+
 
 // Request interceptor — attach auth token if available
 api.interceptors.request.use(
